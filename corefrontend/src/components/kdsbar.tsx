@@ -7,7 +7,7 @@ import { DropdownMenuTrigger, DropdownMenuItem, DropdownMenuContent, DropdownMen
 
 export function KDSBar() {
 
-    const [currentTime, setCurrentTime] = useState('');
+  const [currentTime, setCurrentTime] = useState('');
 
   // Method to update the current time
   const updateTime = () => {
@@ -36,12 +36,11 @@ export function KDSBar() {
   }, []);
 
   return (
-    <div key="1" className="bg-gray-100 p-4 grid grid-cols-5 gap-4">
+    <div key="1" className="p-4 grid grid-cols-5 gap-4">
       <div className="col-span-5 flex justify-between items-center bg-white shadow rounded-lg p-4">
         <div className="flex items-center space-x-4">
           <FlameIcon className="h-6 w-6 text-red-500" />
-          <span className="text-2xl font-semibold">Chilli's</span>
-          <span className="text-2xl font-bold text-gray-800">{currentTime}</span>
+          <span className="text-lg font-semibold">Chilli's</span>
           <Select defaultValue="kitchen">
             <SelectTrigger className="w-32">
               <SelectValue placeholder="Select" />
@@ -51,6 +50,7 @@ export function KDSBar() {
               <SelectItem value="bar">Bar</SelectItem>
             </SelectContent>
           </Select>
+          <span className="text-2xl font-bold text-gray-800">{currentTime}</span>
         </div>
         <div className="flex items-center space-x-4">
           <Button variant="outline">
@@ -89,7 +89,6 @@ export function KDSBar() {
     </div>
   )
 }
-
 
 function FastForwardIcon(props) {
   return (
