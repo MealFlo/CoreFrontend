@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { CardContent, CardFooter, Card, CardHeader, CardTitle } from "@/components/ui/card"
 
@@ -10,8 +11,13 @@ export default function Login() {
       <div className="w-full max-w-md space-y-6">
         <div className="flex items-center justify-center">
           <Link className="inline-flex items-center space-x-2" href="#">
-            <MountainIcon className="h-8 w-8" />
-            <span className="text-2xl font-bold">Acme Inc.</span>
+          <Image
+            src="/images/logo.webp" // Route of the image file
+            height={28} // Desired size with correct aspect ratio
+            width={48.15852048} // Desired size with correct aspect ratio
+            alt="Your Name"
+          />
+            <span className="text-2xl font-bold">MealFlow</span>
           </Link>
         </div>
         <Card>
@@ -37,32 +43,13 @@ export default function Login() {
             </Button>
           </CardContent>
           <CardFooter className="text-center text-sm">
-            Don't have an account?
-            <Link className="font-medium text-gray-900 hover:underline dark:text-gray-50" href="#">
+            Don&apos;t have an account?
+            <Link className="font-medium text-gray-900 hover:underline dark:text-gray-50" href="/signup">
               Sign Up
             </Link>
           </CardFooter>
         </Card>
       </div>
     </div>
-  )
-}
-
-function MountainIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
-    </svg>
   )
 }
