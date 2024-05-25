@@ -3,7 +3,7 @@ import { DotBackground } from "@/components/dotbg";
 
 export default function Home() {
   return (
-    <div className="relative bg-black">
+    <div className="relative">
       <DotBackground />
       <div className="relative z-10">
         <KDSBar />
