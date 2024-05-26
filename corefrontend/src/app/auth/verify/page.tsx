@@ -36,7 +36,7 @@ export default function Component() {
           <CardContent className="space-y-4">
             <div className="space-y-2">
               <Label className="text-sm" htmlFor="otp">
-                Enter OTP
+                One-Time Password
               </Label>
               <InputOTP id="otp" maxLength={6}>
                 <InputOTPGroup>
