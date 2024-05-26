@@ -43,7 +43,7 @@ export default function Login() {
             </Button>
           </CardContent>
           <CardFooter className="text-center text-sm">
-            Don&apos;t have an account?
+            Don&apos;t have an account?&nbsp;
             <Link className="font-medium text-gray-900 hover:underline dark:text-gray-50" href="/auth/signup">
               Sign Up
             </Link>

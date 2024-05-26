@@ -53,7 +53,7 @@ export default function signup() {
             </Button>
           </CardContent>
           <CardFooter className="text-center text-sm">
-            Already have an account?
+            Already have an account?&nbsp;
             <Link className="font-medium text-gray-900 hover:underline dark:text-gray-50" href="/auth/login">
               Sign In
             </Link>
