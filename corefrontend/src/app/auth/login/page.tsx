@@ -32,7 +32,7 @@ export default function Login() {
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <Label htmlFor="password">Password</Label>
-                <Link className="text-sm text-gray-500 hover:underline dark:text-gray-400" href="/login/forgot">
+                <Link className="text-sm text-gray-500 hover:underline dark:text-gray-400" href="/auth/login/forgot">
                   Forgot Password?
                 </Link>
               </div>
@@ -44,7 +44,7 @@ export default function Login() {
           </CardContent>
           <CardFooter className="text-center text-sm">
             Don&apos;t have an account?
-            <Link className="font-medium text-gray-900 hover:underline dark:text-gray-50" href="/signup">
+            <Link className="font-medium text-gray-900 hover:underline dark:text-gray-50" href="/auth/signup">
               Sign Up
             </Link>
           </CardFooter>

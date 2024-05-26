@@ -38,7 +38,7 @@ export default function forgot() {
           </CardContent>
           <CardFooter className="text-center text-sm">
             Remember your password?
-            <Link className="font-medium text-gray-900 hover:underline dark:text-gray-50" href="#">
+            <Link className="font-medium text-gray-900 hover:underline dark:text-gray-50" href="/auth/login">
               Sign In
             </Link>
           </CardFooter>
