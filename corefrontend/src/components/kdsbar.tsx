@@ -4,6 +4,10 @@ import React, { useState, useEffect } from 'react';
 import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
 import { DropdownMenuTrigger, DropdownMenuItem, DropdownMenuContent, DropdownMenu } from "@/components/ui/dropdown-menu"
+import {
+  IconArrowBigRightLines,
+} from "@tabler/icons-react";
+import { IconArrowBack } from '@tabler/icons-react';
 
 export function KDSBar() {
 
@@ -40,7 +44,7 @@ export function KDSBar() {
       <div className="col-span-5 flex justify-between items-center bg-white shadow rounded-lg p-4">
         <div className="flex items-center space-x-4">
           <FlameIcon className="h-6 w-6 text-red-500" />
-          <span className="text-lg font-semibold">Chilli's</span>
+          <span className="text-lg font-semibold">Chilli&apos;s</span>
           <Select defaultValue="kitchen">
             <SelectTrigger className="w-32">
               <SelectValue placeholder="Select" />
@@ -58,8 +62,8 @@ export function KDSBar() {
             Fast Lane
           </Button>
           <Button variant="outline">
-            <ListOrderedIcon className="h-4 w-4 mr-2" />
-            Sort
+            <IconArrowBack className="h-4 w-4 mr-2" />
+            Recall
           </Button>
           <Button variant="outline">
             <ListIcon className="h-4 w-4 mr-2" />
