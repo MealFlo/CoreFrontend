@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card, CardTitle, CardDescription, CardHeader, CardContent, CardFooter, Dialog, DialogTrigger, DialogContent } from "@/components/ui";
+import { Card, CardTitle, CardDescription, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
+import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
 import { IconClock, IconUsers } from '@tabler/icons-react';
 
 interface StationCardProps {
