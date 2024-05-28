@@ -9,6 +9,7 @@ import { Switch } from "@/components/ui/switch"
 import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "@/components/ui/select"
 import { IconSettings, IconBuildingStore, IconLayout, IconPrinter, IconClock, IconChefHat, IconPlus, IconUsers, IconMenu2, IconX, IconArrowLeft } from '@tabler/icons-react';
 import { DialogTrigger, DialogContent, Dialog } from "@/components/ui/dialog"
+import StationCard from "@/components/kitchen/station-card"
 
 /**
  * Renders the Kitchen Settings page.
@@ -131,156 +132,55 @@ export default function KitchenSettings() {
             </DialogTrigger>
             <DialogContent />
           </Dialog>
-          <Dialog>
-            <DialogTrigger asChild>
-              <Card className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden cursor-pointer">
-                <CardHeader className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
-                  <div>
-                    <CardTitle>Bakery Station</CardTitle>
-                    <CardDescription>Pastries, Cakes, Bread</CardDescription>
-                  </div>
-                </CardHeader>
-                <CardContent className="px-4 py-3">
-                  <ul className="pl-4 space-y-1">
-                    <li className="list-none">Pastries</li>
-                    <li className="list-none">Cakes</li>
-                    <li className="list-none">Bread</li>
-                  </ul>
-                </CardContent>
-                <CardFooter className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
-                  <div className="flex items-center gap-2">
-                    <IconClock className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                    <span className="text-sm text-gray-500 dark:text-gray-400">Open: 6:00 AM - 10:00 PM</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <IconUsers className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                    <span className="text-sm text-gray-500 dark:text-gray-400">4 Chefs</span>
-                  </div>
-                </CardFooter>
-              </Card>
-            </DialogTrigger>
-            <DialogContent />
-          </Dialog>
-          <Dialog>
-            <DialogTrigger asChild>
-              <Card className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden cursor-pointer">
-                <CardHeader className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
-                  <div>
-                    <CardTitle>Grill Station</CardTitle>
-                    <CardDescription>Steaks, Burgers, Barbecue</CardDescription>
-                  </div>
-                </CardHeader>
-                <CardContent className="px-4 py-3">
-                  <ul className="pl-4 space-y-1">
-                    <li className="list-none">Steaks</li>
-                    <li className="list-none">Burgers</li>
-                    <li className="list-none">Barbecue</li>
-                  </ul>
-                </CardContent>
-                <CardFooter className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
-                  <div className="flex items-center gap-2">
-                    <IconClock className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                    <span className="text-sm text-gray-500 dark:text-gray-400">Open: 10:00 AM - 11:00 PM</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <IconUsers className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                    <span className="text-sm text-gray-500 dark:text-gray-400">3 Chefs</span>
-                  </div>
-                </CardFooter>
-              </Card>
-            </DialogTrigger>
-            <DialogContent />
-          </Dialog>
-          <Dialog>
-            <DialogTrigger asChild>
-              <Card className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden cursor-pointer">
-                <CardHeader className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
-                  <div>
-                    <CardTitle>Salad Station</CardTitle>
-                    <CardDescription>Fresh Greens and Dressings</CardDescription>
-                  </div>
-                </CardHeader>
-                <CardContent className="px-4 py-3">
-                  <ul className="pl-4 space-y-1">
-                    <li className="list-none">Caesar Salad</li>
-                    <li className="list-none">Greek Salad</li>
-                    <li className="list-none">Garden Salad</li>
-                  </ul>
-                </CardContent>
-                <CardFooter className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
-                  <div className="flex items-center gap-2">
-                    <IconClock className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                    <span className="text-sm text-gray-500 dark:text-gray-400">Open: 8:00 AM - 8:00 PM</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <IconUsers className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                    <span className="text-sm text-gray-500 dark:text-gray-400">2 Chefs</span>
-                  </div>
-                </CardFooter>
-              </Card>
-            </DialogTrigger>
-            <DialogContent />
-          </Dialog>
-          <Dialog>
-            <DialogTrigger asChild>
-              <Card className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden cursor-pointer">
-                <CardHeader className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
-                  <div>
-                    <CardTitle>Sushi Station</CardTitle>
-                    <CardDescription>Traditional and Fusion Rolls</CardDescription>
-                  </div>
-                </CardHeader>
-                <CardContent className="px-4 py-3">
-                  <ul className="pl-4 space-y-1">
-                    <li className="list-none">Nigiri</li>
-                    <li className="list-none">California Roll</li>
-                    <li className="list-none">Spicy Tuna Roll</li>
-                  </ul>
-                </CardContent>
-                <CardFooter className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
-                  <div className="flex items-center gap-2">
-                    <IconClock className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                    <span className="text-sm text-gray-500 dark:text-gray-400">Open: 11:00 AM - 9:00 PM</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <IconUsers className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                    <span className="text-sm text-gray-500 dark:text-gray-400">2 Chefs</span>
-                  </div>
-                </CardFooter>
-              </Card>
-            </DialogTrigger>
-            <DialogContent />
-          </Dialog>
-          <Dialog>
-            <DialogTrigger asChild>
-              <Card className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden cursor-pointer">
-                <CardHeader className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
-                  <div>
-                    <CardTitle>Pasta Station</CardTitle>
-                    <CardDescription>Italian Classics and Modern Twists</CardDescription>
-                  </div>
-                </CardHeader>
-                <CardContent className="px-4 py-3">
-                  <ul className="pl-4 space-y-1">
-                    <li className="list-none">Spaghetti Carbonara</li>
-                    <li className="list-none">Fettuccine Alfredo</li>
-                    <li className="list-none">Penne alla Vodka</li>
-                  </ul>
-                </CardContent>
-                <CardFooter className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
-                  <div className="flex items-center gap-2">
-                    <IconClock className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                    <span className="text-sm text-gray-500 dark:text-gray-400">Open: 10:00 AM - 10:00 PM</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <IconUsers className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                    <span className="text-sm text-gray-500 dark:text-gray-400">3 Chefs</span>
-                  </div>
-                </CardFooter>
-              </Card>
-            </DialogTrigger>
-            <DialogContent />
-          </Dialog>
+          <StationCard
+            title="Bakery Station"
+            description="Fresh Pastries and Breads"
+            operatingHours="6:00 AM - 10:00 PM"
+            chefCount={4}
+            categories={['Pastries', 'Cakes', 'Bread']}
+          />
+          <StationCard
+            title="Grill Station"
+            description="Sizzling Steaks and Burgers"
+            operatingHours="10:00 AM - 11:00 PM"
+            chefCount={3}
+            categories={['Steaks', 'Burgers', 'Barbecue']}
+          />
+          <StationCard
+            title="Salad Station"
+            description="Fresh Greens and Dressings"
+            operatingHours="8:00 AM - 8:00 PM"
+            chefCount={2}
+            categories={['Caesar Salad', 'Greek Salad', 'Garden Salad']}
+          />
+          <StationCard
+            title="Sushi Station"
+            description="Traditional and Fusion Rolls"
+            operatingHours="11:00 AM - 9:00 PM"
+            chefCount={2}
+            categories={['Nigiri', 'California Roll', 'Spicy Tuna Roll']}
+          />
+          <StationCard
+            title="Pasta Station"
+            description="Italian Classics and Modern Twists"
+            operatingHours="10:00 AM - 10:00 PM"
+            chefCount={3}
+            categories={['Spaghetti Carbonara', 'Fettuccine Alfredo', 'Penne alla Vodka']}
+          />
+          <StationCard
+            title="Dessert Station"
+            description="Sweet Treats and Confections"
+            operatingHours="12:00 PM - 11:00 PM"
+            chefCount={2}
+            categories={['Cupcakes', 'Cookies', 'Brownies']}
+          />
+          <StationCard
+            title="Bar Station"
+            description="Cocktails, Spirits, and Brews"
+            operatingHours="4:00 PM - 2:00 AM"
+            chefCount={2}
+            categories={['Margarita', 'Old Fashioned', 'Martini']}
+          />
           </div>
           </div>
         )}

@@ -32,7 +32,7 @@ const StationCard: React.FC<StationCardProps> = ({ title, description, operating
           <CardFooter className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
             <div className="flex items-center gap-2">
               <IconClock className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-              <span className="text-sm text-gray-500 dark:text-gray-400">{operatingHours}</span>
+              <span className="text-sm text-gray-500 dark:text-gray-400">Open: {operatingHours}</span>
             </div>
             <div className="flex items-center gap-2">
               <IconUsers className="w-4 h-4 text-gray-500 dark:text-gray-400" />
