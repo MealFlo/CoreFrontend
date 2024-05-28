@@ -1,0 +1,42 @@
+name: Sync Repository
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
+  # This configuration triggers the workflow on any push or PR to any branch.
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Necessary to fetch all history for pushes and PRs
+
+      - name: Push changes to the personal repository
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          repository: avikhemka/mlflw
+          branch: ${{ github.ref }}
+          force: true  # Optional: use with caution as it can overwrite changes
+          tags: true
+          directory: '.'
+
+      - name: Create Pull Request in Personal Repo
+        if: github.event_name == 'pull_request'
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          commit-message: Sync PR from Org Repo
+          title: '[SYNC] ${{ github.head_ref }}'
+          body: |
+            Syncing pull request ${{ github.event.number }}: ${{ github.event.pull_request.title }}
+          base: ${{ github.base_ref }}  # Base branch in personal repo
+          branch: sync-pr-${{ github.head_ref }}-${{ github.run_number }}  # Unique branch for the PR
+          labels: sync-pr  # Optional: add labels to the PR for easy identification
