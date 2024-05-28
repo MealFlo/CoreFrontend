@@ -46,7 +46,7 @@ export default function KitchenSettings() {
         <div className="flex items-center justify-between">
           <Link
             className="flex items-center gap-2 px-3 py-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800 font-medium"
-            href="#"
+            href="/kitchen"
           >
             <IconArrowLeft className="w-5 h-5" />
             Back
@@ -122,135 +122,165 @@ export default function KitchenSettings() {
           <div>
             <h1 className="text-2xl font-bold mb-6">Station Settings</h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-lg p-6 flex flex-col items-center justify-center">
-              <IconPlus className="w-8 h-8 text-gray-500 dark:text-gray-400" />
-              <p className="text-sm text-gray-500 dark:text-gray-400">Create a new station</p>
-            </div>
-            <Card className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
-              <CardHeader className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
-                <div>
-                  <CardTitle>Bakery Station</CardTitle>
-                  <CardDescription>Pastries, Cakes, Bread</CardDescription>
-                </div>
-              </CardHeader>
-              <CardContent className="px-4 py-3">
-                <ul className="pl-4 space-y-1">
-                  <li className="list-none">Pastries</li>
-                  <li className="list-none">Cakes</li>
-                  <li className="list-none">Bread</li>
-                </ul>
-              </CardContent>
-              <CardFooter className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
-                <div className="flex items-center gap-2">
-                  <IconClock className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm text-gray-500 dark:text-gray-400">Open: 6:00 AM - 10:00 PM</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <IconUsers className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm text-gray-500 dark:text-gray-400">4 Chefs</span>
-                </div>
-              </CardFooter>
-            </Card>
-            <Card className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
-              <CardHeader className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
-                <div>
-                  <CardTitle>Grill Station</CardTitle>
-                  <CardDescription>Steaks, Burgers, Barbecue</CardDescription>
-                </div>
-              </CardHeader>
-              <CardContent className="px-4 py-3">
-                <ul className="pl-4 space-y-1">
-                  <li className="list-none">Steaks</li>
-                  <li className="list-none">Burgers</li>
-                  <li className="list-none">Barbecue</li>
-                </ul>
-              </CardContent>
-              <CardFooter className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
-                <div className="flex items-center gap-2">
-                  <IconClock className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm text-gray-500 dark:text-gray-400">Open: 10:00 AM - 11:00 PM</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <IconUsers className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm text-gray-500 dark:text-gray-400">3 Chefs</span>
-                </div>
-              </CardFooter>
-            </Card>
-            <Card className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
-              <CardHeader className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
-                <div>
-                  <CardTitle>Salad Station</CardTitle>
-                  <CardDescription>Fresh Greens and Dressings</CardDescription>
-                </div>
-              </CardHeader>
-              <CardContent className="px-4 py-3">
-                <ul className="pl-4 space-y-1">
-                  <li className="list-none">Caesar Salad</li>
-                  <li className="list-none">Greek Salad</li>
-                  <li className="list-none">Garden Salad</li>
-                </ul>
-              </CardContent>
-              <CardFooter className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
-                <div className="flex items-center gap-2">
-                  <IconClock className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm text-gray-500 dark:text-gray-400">Open: 8:00 AM - 8:00 PM</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <IconUsers className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm text-gray-500 dark:text-gray-400">2 Chefs</span>
-                </div>
-              </CardFooter>
-            </Card>
-            <Card className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
-              <CardHeader className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
-                <div>
-                  <CardTitle>Sushi Station</CardTitle>
-                  <CardDescription>Traditional and Fusion Rolls</CardDescription>
-                </div>
-              </CardHeader>
-              <CardContent className="px-4 py-3">
-                <ul className="pl-4 space-y-1">
-                  <li className="list-none">Nigiri</li>
-                  <li className="list-none">California Roll</li>
-                  <li className="list-none">Spicy Tuna Roll</li>
-                </ul>
-              </CardContent>
-              <CardFooter className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
-                <div className="flex items-center gap-2">
-                  <IconClock className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm text-gray-500 dark:text-gray-400">Open: 11:00 AM - 9:00 PM</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <IconUsers className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm text-gray-500 dark:text-gray-400">2 Chefs</span>
-                </div>
-              </CardFooter>
-            </Card>
-            <Card className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
-              <CardHeader className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
-                <div>
-                  <CardTitle>Pasta Station</CardTitle>
-                  <CardDescription>Italian Classics and Modern Twists</CardDescription>
-                </div>
-              </CardHeader>
-              <CardContent className="px-4 py-3">
-                <ul className="pl-4 space-y-1">
-                  <li className="list-none">Spaghetti</li>
-                  <li className="list-none">Fettuccine</li>
-                  <li className="list-none">Penne</li>
-                </ul>
-              </CardContent>
-              <CardFooter className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
-                <div className="flex items-center gap-2">
-                  <IconClock className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm text-gray-500 dark:text-gray-400">Open: 10:00 AM - 10:00 PM</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <IconUsers className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                  <span className="text-sm text-gray-500 dark:text-gray-400">3 Chefs</span>
-                </div>
-              </CardFooter>
-            </Card>
+          <Dialog>
+            <DialogTrigger asChild>
+              <div className="border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-lg p-6 flex flex-col items-center justify-center cursor-pointer">
+                <IconPlus className="w-8 h-8 text-gray-500 dark:text-gray-400" />
+                <p className="text-sm text-gray-500 dark:text-gray-400">Create a new kitchen</p>
+              </div>
+            </DialogTrigger>
+            <DialogContent />
+          </Dialog>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Card className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden cursor-pointer">
+                <CardHeader className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
+                  <div>
+                    <CardTitle>Bakery Station</CardTitle>
+                    <CardDescription>Pastries, Cakes, Bread</CardDescription>
+                  </div>
+                </CardHeader>
+                <CardContent className="px-4 py-3">
+                  <ul className="pl-4 space-y-1">
+                    <li className="list-none">Pastries</li>
+                    <li className="list-none">Cakes</li>
+                    <li className="list-none">Bread</li>
+                  </ul>
+                </CardContent>
+                <CardFooter className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
+                  <div className="flex items-center gap-2">
+                    <IconClock className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+                    <span className="text-sm text-gray-500 dark:text-gray-400">Open: 6:00 AM - 10:00 PM</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <IconUsers className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+                    <span className="text-sm text-gray-500 dark:text-gray-400">4 Chefs</span>
+                  </div>
+                </CardFooter>
+              </Card>
+            </DialogTrigger>
+            <DialogContent />
+          </Dialog>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Card className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden cursor-pointer">
+                <CardHeader className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
+                  <div>
+                    <CardTitle>Grill Station</CardTitle>
+                    <CardDescription>Steaks, Burgers, Barbecue</CardDescription>
+                  </div>
+                </CardHeader>
+                <CardContent className="px-4 py-3">
+                  <ul className="pl-4 space-y-1">
+                    <li className="list-none">Steaks</li>
+                    <li className="list-none">Burgers</li>
+                    <li className="list-none">Barbecue</li>
+                  </ul>
+                </CardContent>
+                <CardFooter className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
+                  <div className="flex items-center gap-2">
+                    <IconClock className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+                    <span className="text-sm text-gray-500 dark:text-gray-400">Open: 10:00 AM - 11:00 PM</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <IconUsers className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+                    <span className="text-sm text-gray-500 dark:text-gray-400">3 Chefs</span>
+                  </div>
+                </CardFooter>
+              </Card>
+            </DialogTrigger>
+            <DialogContent />
+          </Dialog>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Card className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden cursor-pointer">
+                <CardHeader className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
+                  <div>
+                    <CardTitle>Salad Station</CardTitle>
+                    <CardDescription>Fresh Greens and Dressings</CardDescription>
+                  </div>
+                </CardHeader>
+                <CardContent className="px-4 py-3">
+                  <ul className="pl-4 space-y-1">
+                    <li className="list-none">Caesar Salad</li>
+                    <li className="list-none">Greek Salad</li>
+                    <li className="list-none">Garden Salad</li>
+                  </ul>
+                </CardContent>
+                <CardFooter className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
+                  <div className="flex items-center gap-2">
+                    <IconClock className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+                    <span className="text-sm text-gray-500 dark:text-gray-400">Open: 8:00 AM - 8:00 PM</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <IconUsers className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+                    <span className="text-sm text-gray-500 dark:text-gray-400">2 Chefs</span>
+                  </div>
+                </CardFooter>
+              </Card>
+            </DialogTrigger>
+            <DialogContent />
+          </Dialog>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Card className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden cursor-pointer">
+                <CardHeader className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
+                  <div>
+                    <CardTitle>Sushi Station</CardTitle>
+                    <CardDescription>Traditional and Fusion Rolls</CardDescription>
+                  </div>
+                </CardHeader>
+                <CardContent className="px-4 py-3">
+                  <ul className="pl-4 space-y-1">
+                    <li className="list-none">Nigiri</li>
+                    <li className="list-none">California Roll</li>
+                    <li className="list-none">Spicy Tuna Roll</li>
+                  </ul>
+                </CardContent>
+                <CardFooter className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
+                  <div className="flex items-center gap-2">
+                    <IconClock className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+                    <span className="text-sm text-gray-500 dark:text-gray-400">Open: 11:00 AM - 9:00 PM</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <IconUsers className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+                    <span className="text-sm text-gray-500 dark:text-gray-400">2 Chefs</span>
+                  </div>
+                </CardFooter>
+              </Card>
+            </DialogTrigger>
+            <DialogContent />
+          </Dialog>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Card className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden cursor-pointer">
+                <CardHeader className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
+                  <div>
+                    <CardTitle>Pasta Station</CardTitle>
+                    <CardDescription>Italian Classics and Modern Twists</CardDescription>
+                  </div>
+                </CardHeader>
+                <CardContent className="px-4 py-3">
+                  <ul className="pl-4 space-y-1">
+                    <li className="list-none">Spaghetti Carbonara</li>
+                    <li className="list-none">Fettuccine Alfredo</li>
+                    <li className="list-none">Penne alla Vodka</li>
+                  </ul>
+                </CardContent>
+                <CardFooter className="flex items-center justify-between px-4 py-3 bg-gray-100 dark:bg-gray-700">
+                  <div className="flex items-center gap-2">
+                    <IconClock className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+                    <span className="text-sm text-gray-500 dark:text-gray-400">Open: 10:00 AM - 10:00 PM</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <IconUsers className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+                    <span className="text-sm text-gray-500 dark:text-gray-400">3 Chefs</span>
+                  </div>
+                </CardFooter>
+              </Card>
+            </DialogTrigger>
+            <DialogContent />
+          </Dialog>
           </div>
           </div>
         )}
