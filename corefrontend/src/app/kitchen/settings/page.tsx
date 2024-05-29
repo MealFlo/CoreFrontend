@@ -7,7 +7,8 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Switch } from "@/components/ui/switch"
 import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "@/components/ui/select"
-import { IconSettings, IconBuildingStore, IconLayout, IconPrinter, IconClock, IconChefHat, IconPlus, IconUsers, IconMenu2, IconX, IconArrowLeft } from '@tabler/icons-react';
+import { IconSettings, IconBuildingStore, IconLayout, IconPrinter, IconClock, IconChefHat, IconPlus, IconUsers, IconMenu2, IconX, IconArrowLeft, IconLayoutGrid, IconLayoutColumns } from '@tabler/icons-react';
+import { RadioGroupItem, RadioGroup } from "@/components/ui/radio-group"
 import { DialogTrigger, DialogContent, Dialog } from "@/components/ui/dialog"
 import StationCard from "@/components/kitchen/station-card"
 
@@ -185,10 +186,101 @@ export default function KitchenSettings() {
           </div>
         )}
         {activeView === 'layout' && (
-          <div>
-            <h1 className="text-2xl font-bold mb-6">Layout Settings</h1>
-            {/* Components for layout settings */}
+          <div className="flex-1 p-8">
+          <h1 className="text-2xl font-bold mb-6">Layout Settings</h1>
+          <Card>
+            <CardHeader>
+              <CardTitle>Station</CardTitle>
+              <CardDescription>Choose the station to change settings for.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Select>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select station" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="station1">Station 1</SelectItem>
+                  <SelectItem value="station2">Station 2</SelectItem>
+                  <SelectItem value="station3">Station 3</SelectItem>
+                </SelectContent>
+              </Select>
+            </CardContent>
+          </Card>
+          <div className="mt-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>Text Size</CardTitle>
+                <CardDescription>Choose the text size for the station.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <RadioGroup defaultValue="medium">
+                  <div className="grid grid-cols-3 gap-4">
+                    <Label className="flex items-center gap-2 cursor-pointer" htmlFor="small">
+                      <RadioGroupItem id="small" value="small" />
+                      <span className="text-sm">Small</span>
+                    </Label>
+                    <Label className="flex items-center gap-2 cursor-pointer" htmlFor="medium">
+                      <RadioGroupItem id="medium" value="medium" />
+                      <span className="text-base">Medium</span>
+                    </Label>
+                    <Label className="flex items-center gap-2 cursor-pointer" htmlFor="large">
+                      <RadioGroupItem id="large" value="large" />
+                      <span className="text-lg">Large</span>
+                    </Label>
+                  </div>
+                </RadioGroup>
+              </CardContent>
+            </Card>
           </div>
+          <div className="mt-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>Order Tickets</CardTitle>
+                <CardDescription>Set the number of order tickets per page.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Select>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select number" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="4">4</SelectItem>
+                    <SelectItem value="5">5</SelectItem>
+                    <SelectItem value="8">8</SelectItem>
+                    <SelectItem value="10">10</SelectItem>
+                  </SelectContent>
+                </Select>
+              </CardContent>
+            </Card>
+          </div>
+          <div className="mt-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>Layout</CardTitle>
+                <CardDescription>Choose the layout for order tickets.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <RadioGroup defaultValue="grid">
+                  <div className="flex items-center gap-16">
+                    <Label className="flex items-center gap-2 cursor-pointer" htmlFor="grid">
+                      <RadioGroupItem id="grid" value="grid" />
+                      <IconLayoutGrid className="w-5 h-5" />
+                      <span>Grid</span>
+                    </Label>
+                    <Label className="flex items-center gap-2 cursor-pointer" htmlFor="column">
+                      <RadioGroupItem id="column" value="column" />
+                      <IconLayoutColumns className="w-5 h-5" />
+                      <span>Column</span>
+                    </Label>
+                  </div>
+                </RadioGroup>
+              </CardContent>
+            </Card>
+          </div>
+          <div className="mt-6">
+            <Button>Save Changes</Button>
+          </div>
+        </div>
         )}
         {activeView === 'timers' && (
           <div>
