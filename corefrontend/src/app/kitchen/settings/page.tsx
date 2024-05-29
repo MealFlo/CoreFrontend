@@ -199,9 +199,13 @@ export default function KitchenSettings() {
                   <SelectValue placeholder="Select station" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="station1">Station 1</SelectItem>
-                  <SelectItem value="station2">Station 2</SelectItem>
-                  <SelectItem value="station3">Station 3</SelectItem>
+                  <SelectItem value="station1">Bakery Station</SelectItem>
+                  <SelectItem value="station2">Grill Station</SelectItem>
+                  <SelectItem value="station3">Salad Station</SelectItem>
+                  <SelectItem value="station4">Sushi Station</SelectItem>
+                  <SelectItem value="station5">Pasta Station</SelectItem>
+                  <SelectItem value="station6">Dessert Station</SelectItem>
+                  <SelectItem value="station7">Bar Station</SelectItem>
                 </SelectContent>
               </Select>
             </CardContent>
@@ -283,10 +287,112 @@ export default function KitchenSettings() {
         </div>
         )}
         {activeView === 'timers' && (
-          <div>
-            <h1 className="text-2xl font-bold mb-6">Timers Settings</h1>
-            {/* Components for timers settings */}
+          <div className="flex-1 p-8">
+          <h1 className="text-2xl font-bold mb-6">Timer Settings</h1>
+          <Card>
+            <CardHeader>
+              <CardTitle>Station</CardTitle>
+              <CardDescription>Choose the station to change settings for.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Select>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select station" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="station1">Bakery Station</SelectItem>
+                  <SelectItem value="station2">Grill Station</SelectItem>
+                  <SelectItem value="station3">Salad Station</SelectItem>
+                  <SelectItem value="station4">Sushi Station</SelectItem>
+                  <SelectItem value="station5">Pasta Station</SelectItem>
+                  <SelectItem value="station6">Dessert Station</SelectItem>
+                  <SelectItem value="station7">Bar Station</SelectItem>
+                </SelectContent>
+              </Select>
+            </CardContent>
+          </Card>
+          <Card className="mt-4">
+          <CardHeader>
+            <CardTitle>Yellow Order Alert</CardTitle>
+            <CardDescription>Configure settings for yellow order alerts.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="grid gap-4">
+              <div>
+                <Label htmlFor="yellowMinutes">Minutes before order turns yellow</Label>
+                <Input id="yellowMinutes" placeholder="Enter minutes" type="number" />
+              </div>
+              <div>
+                <Label htmlFor="yellowSound">Play sound when order turns yellow</Label>
+                <Select>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select sound" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="none">None</SelectItem>
+                    <SelectItem value="beep">Beep</SelectItem>
+                    <SelectItem value="chime">Chime</SelectItem>
+                    <SelectItem value="alarm">Alarm</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+        <Card className="mt-4">
+          <CardHeader>
+            <CardTitle>Red Order Alert</CardTitle>
+            <CardDescription>Configure settings for red order alerts.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="grid gap-4">
+              <div>
+                <Label htmlFor="redMinutes">Minutes before order turns red</Label>
+                <Input id="redMinutes" placeholder="Enter minutes" type="number" />
+              </div>
+              <div>
+                <Label htmlFor="redSound">Play sound when order turns red</Label>
+                <Select>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select sound" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="none">None</SelectItem>
+                    <SelectItem value="beep">Beep</SelectItem>
+                    <SelectItem value="chime">Chime</SelectItem>
+                    <SelectItem value="alarm">Alarm</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+        <Card className="mt-4">
+          <CardHeader>
+            <CardTitle>New Order Alert</CardTitle>
+            <CardDescription>Configure settings for new order alerts.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div>
+              <Label htmlFor="newOrderSound">Play sound when new order is created</Label>
+              <Select>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select sound" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="none">None</SelectItem>
+                  <SelectItem value="beep">Beep</SelectItem>
+                  <SelectItem value="chime">Chime</SelectItem>
+                  <SelectItem value="alarm">Alarm</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </CardContent>
+        </Card>
+          <div className="mt-6">
+            <Button>Save Changes</Button>
           </div>
+        </div>
         )}
         {activeView === 'printers' && (
           <div>
