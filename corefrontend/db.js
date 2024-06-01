@@ -1,15 +1,15 @@
 const { Client } = require('pg');
-const fs = require('fs');
+require('dotenv').config();
 
 console.log('Azure DB Admin: ' + process.env.AZURE_DB_ADMIN)
 
 var client = new Client({
     host:"mealflowpostgresql.postgres.database.azure.com", 
-    user:"aryan", 
-    password:"Meal@1234", 
+    user: process.env.AZURE_DB_ADMIN, 
+    password: process.env.AZURE_DB_PASSWORD, 
     database:"postgres", 
     port:5432, 
-    ssl:{ rejectUnauthorized: false }//{ca:fs.readFileSync("{ca-cert filename}")}
+    ssl:{ rejectUnauthorized: false }
 });
 
 client.connect((err) => {
