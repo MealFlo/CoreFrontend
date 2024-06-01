@@ -1,17 +1,24 @@
-import ItemCard from './ItemCard';
+import MenuItemCard from './MenuItemCard';
 
-const Categories = ({ title, menuItems }) => {
+
+const Categories = ({ title, menuItems, onItemSelect}) => {
+
+  const handleItemClick = (item) => {
+    onItemSelect(item);
+  }
+
   return (
     <div className="mb-8">
       <h2 className="text-2xl font-bold mb-4">{title}</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {menuItems.map((item, index) => (
-          <ItemCard
+          <MenuItemCard
             key={index}
             name={item.name}
             description={item.description}
             price={item.price}
             imageUrl={item.imageUrl}
+            onSelect = {handleItemClick}
           />
         ))}
       </div>

@@ -1,8 +1,13 @@
 import Image from 'next/image';
 
-const MenuItemCard = ({ name, description, price, imageUrl }) => {
+const MenuItemCard = ({ name, description, price, imageUrl, onSelect }) => {
+
+  const handleItemClick = () => {
+    onSelect({ name, description, price, imageUrl }); 
+  }; 
+
   return (
-    <div className="flex w-full max-w-md bg-pink rounded-lg shadow-md">
+    <div className="flex w-full max-w-md bg-pink rounded-lg shadow-md" onClick={handleItemClick}>
       <div className="w-2/3 p-4 pb-6">
         <h2 className="text-lg font-bold">{name}</h2>
         <p className="text-gray-600 mb-4">{description}</p>
