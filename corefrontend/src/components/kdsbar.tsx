@@ -8,6 +8,8 @@ import {
   IconArrowBigRightLines,
 } from "@tabler/icons-react";
 import { IconArrowBack } from '@tabler/icons-react';
+import  {UserButton} from "@clerk/nextjs"
+
 
 export function KDSBar() {
 
@@ -79,15 +81,7 @@ export function KDSBar() {
           </Button>
         </div>
         <div className="flex items-center space-x-4">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <UserCircleIcon className="h-6 w-6 text-gray-500" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuItem>Account Settings</DropdownMenuItem>
-              <DropdownMenuItem>Logout</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <UserButton/>
         </div>
       </div>
     </div>

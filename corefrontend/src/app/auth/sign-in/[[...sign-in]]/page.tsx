@@ -1,10 +1,10 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { SignUp } from "@clerk/nextjs";
+import { SignIn } from "@clerk/nextjs";
 
 
-export default function signup() {
+export default function signin() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[100dvh] bg-gray-100 dark:bg-gray-900 px-4 md:px-6">
       <div className="w-full max-w-md space-y-6">
@@ -19,7 +19,7 @@ export default function signup() {
             <span className="text-2xl font-bold">MealFlow</span>
           </Link>
         </div>
-        <SignUp />
+        <SignIn />
       </div>
     </div>
   )
