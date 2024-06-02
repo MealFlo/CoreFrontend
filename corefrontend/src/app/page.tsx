@@ -1,7 +1,7 @@
-import Dashboard from "@/app/dash";
+import AppSelector from "@/components/app-selector";
 
 export default function Home() {
   return (
-      <Dashboard />
+      <AppSelector />
   );
 }
