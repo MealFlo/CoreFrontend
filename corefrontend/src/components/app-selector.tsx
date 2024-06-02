@@ -1,11 +1,27 @@
 "use client"
 import Link from "next/link"
 import  {UserButton, OrganizationSwitcher} from "@clerk/nextjs"
+import { useUser } from '@clerk/nextjs';
+import { useRouter } from 'next/navigation';
 import { IconToolsKitchen, IconAssembly, IconChefHat } from '@tabler/icons-react';
-
-
+import MLoader from "@/components/multisteploader"
 
 export default function AppSelector() {
+  const { user } = useUser();
+  const router = useRouter();
+
+  if (!user) {
+    return <div><MLoader/></div>;
+  }
+
+  const isPartOfOrganization = user.organizationMemberships && user.organizationMemberships.length > 0;
+
+  // Redirect if part of an organization
+  if (!isPartOfOrganization) {
+    router.push('/onboarding');
+    return <div>Redirecting...</div>;
+  }
+
   return (
     <div className="flex flex-col h-screen">
         <header className="flex items-center justify-between px-4 py-2 bg-gray-100/40 text-gray-50">
