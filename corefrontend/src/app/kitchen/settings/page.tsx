@@ -1,13 +1,12 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import Link from "next/link"
-import { CardTitle, CardDescription, CardHeader, CardContent, CardFooter, Card } from "@/components/ui/card"
+import { CardTitle, CardDescription, CardHeader, CardContent, Card } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { Switch } from "@/components/ui/switch"
 import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "@/components/ui/select"
-import { IconSettings, IconBuildingStore, IconLayout, IconPrinter, IconClock, IconChefHat, IconPlus, IconUsers, IconMenu2, IconX, IconArrowLeft, IconLayoutGrid, IconLayoutColumns } from '@tabler/icons-react';
+import { IconSettings, IconBuildingStore, IconLayout, IconPrinter, IconClock, IconChefHat, IconPlus, IconMenu2, IconX, IconArrowLeft, IconLayoutGrid, IconLayoutColumns } from '@tabler/icons-react';
 import { RadioGroupItem, RadioGroup } from "@/components/ui/radio-group"
 import { DialogTrigger, DialogContent, Dialog } from "@/components/ui/dialog"
 import StationCard from "@/components/kitchen/station-card"

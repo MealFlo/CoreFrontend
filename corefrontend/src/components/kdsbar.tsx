@@ -3,10 +3,6 @@
 import React, { useState, useEffect } from 'react';
 import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
-import { DropdownMenuTrigger, DropdownMenuItem, DropdownMenuContent, DropdownMenu } from "@/components/ui/dropdown-menu"
-import {
-  IconArrowBigRightLines,
-} from "@tabler/icons-react";
 import { IconArrowBack } from '@tabler/icons-react';
 import  {UserButton} from "@clerk/nextjs"
 
@@ -154,29 +150,6 @@ function ListIcon(props) {
 }
 
 
-function ListOrderedIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <line x1="10" x2="21" y1="6" y2="6" />
-      <line x1="10" x2="21" y1="12" y2="12" />
-      <line x1="10" x2="21" y1="18" y2="18" />
-      <path d="M4 6h1v4" />
-      <path d="M4 10h2" />
-      <path d="M6 18H4c0-1 2-2 2-3s-1-1.5-2-1" />
-    </svg>
-  )
-}
 
 
 function MessageCircleIcon(props) {
@@ -194,28 +167,6 @@ function MessageCircleIcon(props) {
       strokeLinejoin="round"
     >
       <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z" />
-    </svg>
-  )
-}
-
-
-function UserCircleIcon(props) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <circle cx="12" cy="12" r="10" />
-      <circle cx="12" cy="10" r="3" />
-      <path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662" />
     </svg>
   )
 }
