@@ -11,10 +11,9 @@ import {
 } from "lucide-react"
 
 import  Sidebar  from "@/components/ui/sidebar"
-import  {UserButton} from "@clerk/nextjs"
+import  {UserButton, OrganizationSwitcher} from "@clerk/nextjs"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { OrganizationSwitcher } from "@clerk/nextjs"
 import { Input } from "@/components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
@@ -73,7 +72,16 @@ export function Dashboard() {
 
               </nav>
               <div className="mt-auto">
-                <OrganizationSwitcher />
+                <Link
+                  href="#"
+                  className="mx-[-0.65rem] flex items-center gap-4 rounded-xl bg-muted px-3 py-2 text-foreground hover:text-foreground"
+                >
+                  <ShoppingCart className="h-5 w-5" />
+                  Orders
+                  <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
+                    6
+                  </Badge>
+                </Link>
               </div>
             </SheetContent>
           </Sheet>
