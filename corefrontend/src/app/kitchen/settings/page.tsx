@@ -1,13 +1,13 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import Link from "next/link"
-import { CardTitle, CardDescription, CardHeader, CardContent, CardFooter, Card } from "@/components/ui/card"
+import { CardTitle, CardDescription, CardHeader, CardContent, Card } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { Switch } from "@/components/ui/switch"
 import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "@/components/ui/select"
-import { IconSettings, IconBuildingStore, IconLayout, IconPrinter, IconClock, IconChefHat, IconPlus, IconUsers, IconMenu2, IconX, IconArrowLeft } from '@tabler/icons-react';
+import { IconSettings, IconBuildingStore, IconLayout, IconPrinter, IconClock, IconChefHat, IconPlus, IconMenu2, IconX, IconArrowLeft, IconLayoutGrid, IconLayoutColumns } from '@tabler/icons-react';
+import { RadioGroupItem, RadioGroup } from "@/components/ui/radio-group"
 import { DialogTrigger, DialogContent, Dialog } from "@/components/ui/dialog"
 import StationCard from "@/components/kitchen/station-card"
 
@@ -185,16 +185,213 @@ export default function KitchenSettings() {
           </div>
         )}
         {activeView === 'layout' && (
-          <div>
-            <h1 className="text-2xl font-bold mb-6">Layout Settings</h1>
-            {/* Components for layout settings */}
+          <div className="flex-1 p-8">
+          <h1 className="text-2xl font-bold mb-6">Layout Settings</h1>
+          <Card>
+            <CardHeader>
+              <CardTitle>Station</CardTitle>
+              <CardDescription>Choose the station to change settings for.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Select>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select station" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="station1">Bakery Station</SelectItem>
+                  <SelectItem value="station2">Grill Station</SelectItem>
+                  <SelectItem value="station3">Salad Station</SelectItem>
+                  <SelectItem value="station4">Sushi Station</SelectItem>
+                  <SelectItem value="station5">Pasta Station</SelectItem>
+                  <SelectItem value="station6">Dessert Station</SelectItem>
+                  <SelectItem value="station7">Bar Station</SelectItem>
+                </SelectContent>
+              </Select>
+            </CardContent>
+          </Card>
+          <div className="mt-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>Text Size</CardTitle>
+                <CardDescription>Choose the text size for the station.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <RadioGroup defaultValue="medium">
+                  <div className="grid grid-cols-3 gap-4">
+                    <Label className="flex items-center gap-2 cursor-pointer" htmlFor="small">
+                      <RadioGroupItem id="small" value="small" />
+                      <span className="text-sm">Small</span>
+                    </Label>
+                    <Label className="flex items-center gap-2 cursor-pointer" htmlFor="medium">
+                      <RadioGroupItem id="medium" value="medium" />
+                      <span className="text-base">Medium</span>
+                    </Label>
+                    <Label className="flex items-center gap-2 cursor-pointer" htmlFor="large">
+                      <RadioGroupItem id="large" value="large" />
+                      <span className="text-lg">Large</span>
+                    </Label>
+                  </div>
+                </RadioGroup>
+              </CardContent>
+            </Card>
           </div>
+          <div className="mt-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>Order Tickets</CardTitle>
+                <CardDescription>Set the number of order tickets per page.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Select>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select number" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="4">4</SelectItem>
+                    <SelectItem value="5">5</SelectItem>
+                    <SelectItem value="8">8</SelectItem>
+                    <SelectItem value="10">10</SelectItem>
+                  </SelectContent>
+                </Select>
+              </CardContent>
+            </Card>
+          </div>
+          <div className="mt-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>Layout</CardTitle>
+                <CardDescription>Choose the layout for order tickets.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <RadioGroup defaultValue="grid">
+                  <div className="flex items-center gap-16">
+                    <Label className="flex items-center gap-2 cursor-pointer" htmlFor="grid">
+                      <RadioGroupItem id="grid" value="grid" />
+                      <IconLayoutGrid className="w-5 h-5" />
+                      <span>Grid</span>
+                    </Label>
+                    <Label className="flex items-center gap-2 cursor-pointer" htmlFor="column">
+                      <RadioGroupItem id="column" value="column" />
+                      <IconLayoutColumns className="w-5 h-5" />
+                      <span>Column</span>
+                    </Label>
+                  </div>
+                </RadioGroup>
+              </CardContent>
+            </Card>
+          </div>
+          <div className="mt-6">
+            <Button>Save Changes</Button>
+          </div>
+        </div>
         )}
         {activeView === 'timers' && (
-          <div>
-            <h1 className="text-2xl font-bold mb-6">Timers Settings</h1>
-            {/* Components for timers settings */}
+          <div className="flex-1 p-8">
+          <h1 className="text-2xl font-bold mb-6">Timer Settings</h1>
+          <Card>
+            <CardHeader>
+              <CardTitle>Station</CardTitle>
+              <CardDescription>Choose the station to change settings for.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Select>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select station" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="station1">Bakery Station</SelectItem>
+                  <SelectItem value="station2">Grill Station</SelectItem>
+                  <SelectItem value="station3">Salad Station</SelectItem>
+                  <SelectItem value="station4">Sushi Station</SelectItem>
+                  <SelectItem value="station5">Pasta Station</SelectItem>
+                  <SelectItem value="station6">Dessert Station</SelectItem>
+                  <SelectItem value="station7">Bar Station</SelectItem>
+                </SelectContent>
+              </Select>
+            </CardContent>
+          </Card>
+          <Card className="mt-4">
+          <CardHeader>
+            <CardTitle>Yellow Order Alert</CardTitle>
+            <CardDescription>Configure settings for yellow order alerts.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="grid gap-4">
+              <div>
+                <Label htmlFor="yellowMinutes">Minutes before order turns yellow</Label>
+                <Input id="yellowMinutes" placeholder="Enter minutes" type="number" />
+              </div>
+              <div>
+                <Label htmlFor="yellowSound">Play sound when order turns yellow</Label>
+                <Select>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select sound" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="none">None</SelectItem>
+                    <SelectItem value="beep">Beep</SelectItem>
+                    <SelectItem value="chime">Chime</SelectItem>
+                    <SelectItem value="alarm">Alarm</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+        <Card className="mt-4">
+          <CardHeader>
+            <CardTitle>Red Order Alert</CardTitle>
+            <CardDescription>Configure settings for red order alerts.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="grid gap-4">
+              <div>
+                <Label htmlFor="redMinutes">Minutes before order turns red</Label>
+                <Input id="redMinutes" placeholder="Enter minutes" type="number" />
+              </div>
+              <div>
+                <Label htmlFor="redSound">Play sound when order turns red</Label>
+                <Select>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select sound" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="none">None</SelectItem>
+                    <SelectItem value="beep">Beep</SelectItem>
+                    <SelectItem value="chime">Chime</SelectItem>
+                    <SelectItem value="alarm">Alarm</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+        <Card className="mt-4">
+          <CardHeader>
+            <CardTitle>New Order Alert</CardTitle>
+            <CardDescription>Configure settings for new order alerts.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div>
+              <Label htmlFor="newOrderSound">Play sound when new order is created</Label>
+              <Select>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select sound" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="none">None</SelectItem>
+                  <SelectItem value="beep">Beep</SelectItem>
+                  <SelectItem value="chime">Chime</SelectItem>
+                  <SelectItem value="alarm">Alarm</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+          </CardContent>
+        </Card>
+          <div className="mt-6">
+            <Button>Save Changes</Button>
           </div>
+        </div>
         )}
         {activeView === 'printers' && (
           <div>
