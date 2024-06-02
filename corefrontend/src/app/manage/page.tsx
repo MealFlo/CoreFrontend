@@ -1,19 +1,38 @@
 "use client"
 import Link from "next/link"
-import { Input } from "@/components/ui/input"
 import { CardTitle, CardHeader, CardContent, Card } from "@/components/ui/card"
 
 import  {UserButton, OrganizationSwitcher} from "@clerk/nextjs"
 import {
+  IconApps, IconAssembly,
   IconCalendar, IconChartBar,
-  IconChartLine, IconCurrencyDollar, IconMoodSmile,
+  IconChartLine, IconChefHat, IconChevronDown, IconCurrencyDollar, IconMoodSmile,
   IconPackage,
-  IconSearch,
-  IconShoppingCart,
+  IconShoppingCart, IconToolsKitchen,
   IconUsers,
 } from "@tabler/icons-react";
+import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
+import {Button} from "@/components/ui/button";
+import MLoader from "@/components/multisteploader"
+import { useUser } from '@clerk/nextjs';
+import { useRouter } from 'next/navigation';
+
 
 export default function Dashboard() {
+  const { user } = useUser();
+  const router = useRouter();
+
+  if (!user) {
+    return <div><MLoader/></div>;
+  }
+
+  const isPartOfOrganization = user.organizationMemberships && user.organizationMemberships.length > 0;
+
+  // Redirect if part of an organization
+  if (!isPartOfOrganization) {
+    router.push('/onboarding');
+    return <div><MLoader/></div>;
+  }
   return (
     <div className="grid min-h-screen w-full overflow-hidden lg:grid-cols-[280px_1fr]">
       <div className="hidden border-r bg-gray-100/40 lg:block dark:bg-gray-800/40">
@@ -63,16 +82,43 @@ export default function Dashboard() {
             <h1 className="font-semibold text-lg">Restaurant Dashboard</h1>
           </div>
           <div className="flex flex-1 items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
-            <form className="ml-auto flex-1 sm:flex-initial">
-              <div className="relative">
-                <IconSearch className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500 dark:text-gray-400" />
-                <Input
-                  className="pl-8 sm:w-[300px] md:w-[200px] lg:w-[300px] bg-white"
-                  placeholder="Search..."
-                  type="search"
-                />
-              </div>
-            </form>
+            <div className="ml-auto flex-1 sm:flex-initial">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="sm" className="flex items-center gap-2">
+                    <IconApps className="w-4 h-4" />
+                    <span>Apps</span>
+                    <IconChevronDown className="w-4 h-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-72">
+                  <Link href="/manage" passHref>
+                    <DropdownMenuItem asChild>
+                      <a className="flex items-center">
+                        <IconAssembly className="w-4 h-4 mr-2" />
+                        Manage
+                      </a>
+                    </DropdownMenuItem>
+                  </Link>
+                  <Link href="/kitchen" passHref>
+                    <DropdownMenuItem asChild>
+                      <a className="flex items-center">
+                        <IconToolsKitchen className="w-4 h-4 mr-2" />
+                        Kitchen
+                      </a>
+                    </DropdownMenuItem>
+                  </Link>
+                  <Link href="/order" passHref>
+                    <DropdownMenuItem asChild>
+                      <a className="flex items-center">
+                        <IconChefHat className="w-4 h-4 mr-2" />
+                        Order
+                      </a>
+                    </DropdownMenuItem>
+                  </Link>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
             <UserButton/>
           </div>
         </header>
