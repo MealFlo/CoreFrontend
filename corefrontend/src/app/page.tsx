@@ -1,4 +1,4 @@
-import { Dashboard } from "@/app/dash"; 
+import Dashboard from "@/app/dash";
 
 export default function Home() {
   return (
