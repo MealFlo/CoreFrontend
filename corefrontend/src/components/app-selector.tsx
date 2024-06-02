@@ -19,7 +19,7 @@ export default function AppSelector() {
   // Redirect if part of an organization
   if (!isPartOfOrganization) {
     router.push('/onboarding');
-    return <div>Redirecting...</div>;
+    return <div><MLoader/></div>;
   }
 
   return (

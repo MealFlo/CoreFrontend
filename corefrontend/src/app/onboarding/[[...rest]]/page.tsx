@@ -17,7 +17,7 @@ export default function OnBoard() {
   // Redirect if part of an organization
   if (isPartOfOrganization) {
     router.push('/');
-    return <div>Redirecting...</div>;
+    return <div><MLoader/></div>;
   }
 
   return (
