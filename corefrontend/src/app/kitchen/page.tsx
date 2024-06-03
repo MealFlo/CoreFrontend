@@ -21,7 +21,7 @@ export default function Kitchen() {
     router.push('/onboarding');
     return <div><MLoader/></div>;
   }
-
+  const orderCreatedAt=new Date();
   return (
     <div className="relative">
       <DotBackground />
@@ -36,6 +36,7 @@ export default function Kitchen() {
               { id: '1', quantity: 2, name: 'Pepperoni Pizza', specialInstructions: 'Extra cheese, no onions' },
               { id: '2', quantity: 1, name: 'Garlic Bread', specialInstructions: 'Add garlic' }
             ]}
+            orderCreatedAt={orderCreatedAt}
           />
           <OrderTicket
             orderType="pickup"
@@ -45,6 +46,7 @@ export default function Kitchen() {
               { id: '3', quantity: 1, name: 'Spaghetti Carbonara', specialInstructions: 'Extra bacon' },
               { id: '4', quantity: 1, name: 'Tiramisu', specialInstructions: 'No nuts' }
             ]}
+            orderCreatedAt={orderCreatedAt}
           />
           <OrderTicket
             orderType="dine-in"
@@ -57,6 +59,7 @@ export default function Kitchen() {
               { id: '26', quantity: 3, name: 'Biryani', specialInstructions: 'Extra spicy' },
               { id: '27', quantity: 2, name: 'Pasta', specialInstructions: 'No cheese'}
             ]}
+            orderCreatedAt={orderCreatedAt}
           />
         </div>
       </div>
