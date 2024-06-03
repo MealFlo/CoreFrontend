@@ -3,8 +3,18 @@ import Link from "next/link"
 import  {UserButton, OrganizationSwitcher} from "@clerk/nextjs"
 import { useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
-import { IconToolsKitchen, IconAssembly, IconChefHat } from '@tabler/icons-react';
+import {
+    IconToolsKitchen,
+    IconAssembly,
+    IconChefHat,
+    IconApps,
+    IconChevronDown,
+    IconSettings, IconSearch
+} from '@tabler/icons-react';
 import MLoader from "@/components/ui/multisteploader"
+import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
+import {Button} from "@/components/ui/button";
+import React from "react";
 
 export default function AppSelector() {
   const { user } = useUser();
@@ -70,10 +80,69 @@ export default function AppSelector() {
                                     className="text-sm font-medium text-gray-700 dark:text-gray-300 truncate">Order</span>
                             </div>
                         </Link>
+                        <Link href="/settings">
+                            <div className="flex flex-col items-center gap-2 cursor-pointer group">
+                                <div
+                                    className="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 group-hover:bg-gray-200 dark:group-hover:bg-gray-700 transition-colors">
+                                    <IconSettings className="w-8 h-8 text-gray-500 dark:text-gray-400"/>
+                                </div>
+                                <span
+                                    className="text-sm font-medium text-gray-700 dark:text-gray-300 truncate">Settings</span>
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </div>
         </main>
     </div>
+  )
+}
+
+export function AppSelectorDrop() {
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" size="sm" className="flex items-center gap-2">
+          <IconApps className="w-4 h-4"/>
+          <span>Apps</span>
+          <IconChevronDown className="w-4 h-4"/>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end" className="w-72">
+        <Link href="/manage" passHref>
+          <DropdownMenuItem asChild>
+            <a className="flex items-center">
+              <IconAssembly className="w-4 h-4 mr-2"/>
+              Manage
+            </a>
+          </DropdownMenuItem>
+        </Link>
+        <Link href="/kitchen" passHref>
+          <DropdownMenuItem asChild>
+            <a className="flex items-center">
+              <IconToolsKitchen className="w-4 h-4 mr-2"/>
+              Kitchen
+            </a>
+          </DropdownMenuItem>
+        </Link>
+        <Link href="/order" passHref>
+          <DropdownMenuItem asChild>
+            <a className="flex items-center">
+              <IconChefHat className="w-4 h-4 mr-2"/>
+              Order
+            </a>
+          </DropdownMenuItem>
+        </Link>
+        <Link href="/settings" passHref>
+          <DropdownMenuItem asChild>
+            <a className="flex items-center">
+              <IconSettings className="w-4 h-4 mr-2"/>
+              Settings
+            </a>
+          </DropdownMenuItem>
+        </Link>
+      </DropdownMenuContent>
+    </DropdownMenu>
   )
 }

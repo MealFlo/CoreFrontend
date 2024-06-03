@@ -4,17 +4,15 @@ import React, { useState, useEffect } from 'react';
 import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
 import {
-  IconApps,
   IconArrowBack,
-  IconArrowBigRightLines, IconAssembly, IconChefHat, IconChevronDown,
+  IconArrowBigRightLines,
   IconEye,
   IconFlame,
   IconListNumbers,
-  IconMessageCircle, IconToolsKitchen
+  IconMessageCircle,
 } from '@tabler/icons-react';
 import  {UserButton} from "@clerk/nextjs"
-import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
-import Link from "next/link";
+import {AppSelectorDrop} from "@/components/app-selector";
 
 
 export function KDSBar() {
@@ -31,7 +29,7 @@ export function KDSBar() {
     
     // Convert hours from 24-hour to 12-hour format
     hours = hours % 12;
-    // The hour '0' should be '12'
+    // The hour '0' should be '12''
     hours = hours ? hours : 12;
     hours = String(hours).padStart(2, '0') as unknown as number;
     
@@ -88,41 +86,7 @@ export function KDSBar() {
         </div>
         <div className="flex items-center space-x-4">
           <div className="ml-auto flex-1 sm:flex-initial">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="flex items-center gap-2">
-                  <IconApps className="w-4 h-4"/>
-                  <span>Apps</span>
-                  <IconChevronDown className="w-4 h-4"/>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-72">
-                <Link href="/manage" passHref>
-                  <DropdownMenuItem asChild>
-                    <a className="flex items-center">
-                      <IconAssembly className="w-4 h-4 mr-2"/>
-                      Manage
-                    </a>
-                  </DropdownMenuItem>
-                </Link>
-                <Link href="/kitchen" passHref>
-                  <DropdownMenuItem asChild>
-                    <a className="flex items-center">
-                      <IconToolsKitchen className="w-4 h-4 mr-2"/>
-                      Kitchen
-                    </a>
-                  </DropdownMenuItem>
-                </Link>
-                <Link href="/order" passHref>
-                  <DropdownMenuItem asChild>
-                    <a className="flex items-center">
-                      <IconChefHat className="w-4 h-4 mr-2"/>
-                      Order
-                    </a>
-                  </DropdownMenuItem>
-                </Link>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <AppSelectorDrop/>
           </div>
           <UserButton/>
         </div>
