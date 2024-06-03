@@ -2,7 +2,7 @@
 import {CreateOrganization} from "@clerk/nextjs";
 import { useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
-import MLoader from "@/components/multisteploader";
+import MLoader from "@/components/ui/multisteploader";
 
 export default function OnBoard() {
   const { user } = useUser();

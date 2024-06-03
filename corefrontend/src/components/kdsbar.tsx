@@ -4,14 +4,17 @@ import React, { useState, useEffect } from 'react';
 import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
 import {
+  IconApps,
   IconArrowBack,
-  IconArrowBigRightLines,
+  IconArrowBigRightLines, IconAssembly, IconChefHat, IconChevronDown,
   IconEye,
   IconFlame,
   IconListNumbers,
-  IconMessageCircle
+  IconMessageCircle, IconToolsKitchen
 } from '@tabler/icons-react';
 import  {UserButton} from "@clerk/nextjs"
+import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
+import Link from "next/link";
 
 
 export function KDSBar() {
@@ -84,6 +87,43 @@ export function KDSBar() {
           </Button>
         </div>
         <div className="flex items-center space-x-4">
+          <div className="ml-auto flex-1 sm:flex-initial">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm" className="flex items-center gap-2">
+                  <IconApps className="w-4 h-4"/>
+                  <span>Apps</span>
+                  <IconChevronDown className="w-4 h-4"/>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-72">
+                <Link href="/manage" passHref>
+                  <DropdownMenuItem asChild>
+                    <a className="flex items-center">
+                      <IconAssembly className="w-4 h-4 mr-2"/>
+                      Manage
+                    </a>
+                  </DropdownMenuItem>
+                </Link>
+                <Link href="/kitchen" passHref>
+                  <DropdownMenuItem asChild>
+                    <a className="flex items-center">
+                      <IconToolsKitchen className="w-4 h-4 mr-2"/>
+                      Kitchen
+                    </a>
+                  </DropdownMenuItem>
+                </Link>
+                <Link href="/order" passHref>
+                  <DropdownMenuItem asChild>
+                    <a className="flex items-center">
+                      <IconChefHat className="w-4 h-4 mr-2"/>
+                      Order
+                    </a>
+                  </DropdownMenuItem>
+                </Link>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
           <UserButton/>
         </div>
       </div>

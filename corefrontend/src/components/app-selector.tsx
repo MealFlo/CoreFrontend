@@ -4,7 +4,7 @@ import  {UserButton, OrganizationSwitcher} from "@clerk/nextjs"
 import { useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
 import { IconToolsKitchen, IconAssembly, IconChefHat } from '@tabler/icons-react';
-import MLoader from "@/components/multisteploader"
+import MLoader from "@/components/ui/multisteploader"
 
 export default function AppSelector() {
   const { user } = useUser();

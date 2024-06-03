@@ -13,7 +13,7 @@ import {
 } from "@tabler/icons-react";
 import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
 import {Button} from "@/components/ui/button";
-import MLoader from "@/components/multisteploader"
+import MLoader from "@/components/ui/multisteploader"
 import { useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
 
