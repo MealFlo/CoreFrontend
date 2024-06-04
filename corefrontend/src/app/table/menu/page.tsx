@@ -61,6 +61,8 @@ export default function Page() {
   const [totalPrice, setTotalPrice] = useState(0);  
   const [totalItems, setTotalItems] = useState(0);
   const [showOrderPopup, setShowOrderPopup] = useState(false);
+  const [showPlaceOrderPopup, setShowPlaceOrderPopup] = useState(false);
+  const [showOrderTypePopup, setShowOrderTypePopup] = useState(false);
 
   const handleItemSelect = (item) => {
     
@@ -107,9 +109,33 @@ export default function Page() {
     setTotalItems(totalItems - item.quantity);
   };
 
-  const handleGoToCart = async () => {
-    console.log('Placing order...', selectedItems);
+  const handlePlaceOrder = () => {
+    setShowOrderTypePopup(true);
+  };
+  
+  const handlePlaceOrderPopupClose = () => {
+    setShowPlaceOrderPopup(false);
+  };
+
+  const handleOrderTypePopupClose = () => {
+    setShowOrderTypePopup(false);
+  };
+
+  const handleGoToCart = () => {
+    setShowPlaceOrderPopup(true);
   }; 
+
+  // Add your logic for "Continue as Guest" here
+  const handleContinueAsGuest = () => {
+    console.log('Continue as Guest');
+    setShowOrderTypePopup(false);
+  }
+
+  // Add your logic for "Login using Mobile Phone" here
+  const handleMobileLogin = () => {
+    console.log('Mobile login');
+    setShowOrderTypePopup(false);
+  }
 
   // Adding the order to the database, replace with API call
   // const handleGoToCart   = async () => {
@@ -228,6 +254,119 @@ export default function Page() {
     ));
   };
 
+  const placeOrderPopup = () => {
+    return (
+      showPlaceOrderPopup && (
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+          <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-lg font-bold">Your Order</h2>
+              <button onClick={handlePlaceOrderPopupClose}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 text-gray-500 hover:text-gray-700"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div className="space-y-4">
+              {selectedItems.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex justify-between items-center bg-gray-100 rounded-lg p-4"
+                >
+                  <div className="flex items-center space-x-4">
+                    <div className="w-16 h-16 bg-gray-200 rounded-lg"></div>
+                    <div>
+                      <p className="font-bold">{item.name}</p>
+                      <p className="text-gray-500">Quantity: {item.quantity}</p>
+                    </div>
+                  </div>
+                  <button
+                    className="text-red-500 hover:text-red-700"
+                    onClick={() => handleRemoveItem(item)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6">
+              <button
+                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded w-full"
+                onClick={() => {
+                  handlePlaceOrder();
+                  // Add your order placement logic here
+                }}
+              >
+                Place Order
+              </button>
+            </div>
+          </div>
+        </div>
+      )
+    );
+  };
+
+  const orderTypePopup = () => {
+    return (
+      showOrderTypePopup && (
+        <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+          <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-lg font-bold">How would you like to order?</h2>
+              <button onClick={handleOrderTypePopupClose}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6 text-gray-500 hover:text-gray-700"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div className="space-y-4">
+              <button
+                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded w-full"
+                onClick={() => {
+                  // Add your logic for "Continue as Guest" here
+                  handleContinueAsGuest();
+                }}
+              >
+                Continue as Guest
+              </button>
+              <button
+                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded w-full"
+                onClick={() => {
+                  // Add your logic for "Login using Mobile Phone" here
+                  handleMobileLogin();
+                }}
+              >
+                Login using Mobile Phone
+              </button>
+            </div>
+          </div>
+        </div>
+      )
+    );
+  };
+
   const showFooter = () => {
     return (
       <footer className="fixed bottom-0 left-0 w-full bg-white shadow-lg p-4 flex justify-between items-center">
@@ -261,6 +400,8 @@ export default function Page() {
       {showNavbarAndMenu()}
       {showFooter()}
       {viewOrderPopup()}
+      {placeOrderPopup()}
+      {orderTypePopup()}
 
     </>
   );
