@@ -60,6 +60,7 @@ export default function Page() {
   const [selectedItems, setSelectedItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);  
   const [totalItems, setTotalItems] = useState(0);
+  const [showOrderPopup, setShowOrderPopup] = useState(false);
 
   const handleItemSelect = (item) => {
     
@@ -90,6 +91,20 @@ export default function Page() {
 
   const calculateTotalPrice = () => {
     return selectedItems.reduce((total, item) => total + item.price , 0);
+  };
+
+  const handleViewOrder = () => {
+    setShowOrderPopup(true);
+  };
+
+  const handleOrderPopupClose = () => {
+    setShowOrderPopup(false);
+  };
+
+  const handleRemoveItem = (item) => {
+    setSelectedItems(selectedItems.filter((i) => i.id !== item.id));
+    setTotalPrice(totalPrice - item.price * item.quantity);
+    setTotalItems(totalItems - item.quantity);
   };
 
   const handleGoToCart = async () => {
@@ -127,6 +142,24 @@ export default function Page() {
   //   }
   // };
 
+  // BELOW ARE THE FUNCTIONS THAT RENDER THE PAGE
+  // These functions are used to render the page content
+  // They are not event handlers or other logic
+
+  const showNavbarAndMenu = () => {
+    return (
+      <div className="fixed inset-0 bg-gray-100 overflow-y-scroll pb-24">
+        <div className="flex flex-col">
+          <TopBar restaurantName="My Restaurant" tableNumber={12} />
+          <MenuNavBar categories={menuCategories} />
+          {/* Rest of the page content */}
+          <div className="p-4">
+            {showMenu()}
+          </div>
+        </div>
+      </div>
+    );
+  };
 
   const showMenu = () => {
 
@@ -145,22 +178,58 @@ export default function Page() {
     ));
   }; 
 
-  return (
-    <>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </Head>
-      {/* Fix the page to the aspect ratio of a mobile using Tailwind */}
-      <div className="fixed inset-0 bg-gray-100 overflow-y-scroll pb-24">
-        <div className="flex flex-col">
-          <TopBar restaurantName="My Restaurant" tableNumber={12} />
-          <MenuNavBar categories={menuCategories} />
-          {/* Rest of the page content */}
-          <div className="p-4">
-            {showMenu()} 
+  const viewOrderPopup = () => {
+    return (showOrderPopup && (
+      <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50">
+        <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6">
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-lg font-bold">Your Current Order</h2>
+            <button onClick={handleOrderPopupClose}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6 text-gray-500 hover:text-gray-700"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+          <div className="space-y-4">
+            {selectedItems.map((item, index) => (
+              <div
+                key={index}
+                className="flex justify-between items-center bg-gray-100 rounded-lg p-4"
+              >
+                <div className="flex items-center space-x-4">
+                  <div className="w-16 h-16 bg-gray-200 rounded-lg"></div>
+                  <div>
+                    <p className="font-bold">{item.name}</p>
+                    <p className="text-gray-500">Quantity: {item.quantity}</p>
+                  </div>
+                </div>
+                <button
+                  className="text-red-500 hover:text-red-700"
+                  onClick={() => handleRemoveItem(item)}
+                >
+                  Delete
+                </button>
+              </div>
+            ))}
           </div>
         </div>
       </div>
+    ));
+  };
+
+  const showFooter = () => {
+    return (
       <footer className="fixed bottom-0 left-0 w-full bg-white shadow-lg p-4 flex justify-between items-center">
         <div>
           <p>Total: ${totalPrice.toFixed(2)}</p>
@@ -168,11 +237,31 @@ export default function Page() {
         </div>
         <button
           className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+          onClick={handleViewOrder}
+        >
+          View Order
+        </button>
+        <button
+          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
           onClick={handleGoToCart}
         >
-          Go to Cart 
+          Go to Cart
         </button>
       </footer>
+    );
+  };
+
+
+
+  return (
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
+      {showNavbarAndMenu()}
+      {showFooter()}
+      {viewOrderPopup()}
+
     </>
   );
 }
