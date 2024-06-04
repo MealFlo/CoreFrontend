@@ -14,10 +14,12 @@ const Categories = ({ title, menuItems, onItemSelect}) => {
         {menuItems.map((item, index) => (
           <MenuItemCard
             key={index}
+            id={item.id}
             name={item.name}
             description={item.description}
             price={item.price}
             imageUrl={item.imageUrl}
+            category={item.category}
             onSelect = {handleItemClick}
           />
         ))}

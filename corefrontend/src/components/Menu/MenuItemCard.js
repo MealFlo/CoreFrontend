@@ -1,9 +1,9 @@
 import Image from 'next/image';
 
-const MenuItemCard = ({ name, description, price, imageUrl, onSelect }) => {
+const MenuItemCard = ({ id, name, description, price, imageUrl, category, onSelect }) => {
 
   const handleItemClick = () => {
-    onSelect({ name, description, price, imageUrl }); 
+    onSelect({ id, name, description, price, imageUrl, category }); 
   }; 
 
   return (
@@ -11,7 +11,7 @@ const MenuItemCard = ({ name, description, price, imageUrl, onSelect }) => {
       <div className="w-2/3 p-4 pb-6">
         <h2 className="text-lg font-bold">{name}</h2>
         <p className="text-gray-600 mb-4">{description}</p>
-        <p className="text-2xl font-bold">${price.toFixed(2)}</p>
+        <p className="text-xl font-bold">${price.toFixed(2)}</p>
       </div>
       <div className="w-1/3 pb-6">
         <Image
