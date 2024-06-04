@@ -137,37 +137,6 @@ export default function Page() {
     setShowOrderTypePopup(false);
   }
 
-  // Adding the order to the database, replace with API call
-  // const handleGoToCart   = async () => {
-  //   try {
-  //     // Insert the order into the database
-  //     const orderId = await client.insert('orders', {
-  //       table_id: 1, // Replace with the actual table ID
-  //       user_id: 'user123', // Replace with the actual user ID
-  //       status: 'pending',
-  //       total_price: calculateTotalPrice(),
-  //     });
-
-  //     // Insert the order items into the database
-  //     for (const item of selectedItems) {
-  //       await client.insert('order_items', {
-  //         order_id: randomInt(1, 1000), // Replace with the actual order ID
-  //         menu_item_id: 1, // Replace with the actual menu item ID
-  //         quantity: 1, // Assuming one of each item for now
-  //         price: item.price,
-  //         special_instructions: '', // Add any special instructions if needed
-  //       });
-  //     }
-
-  //     // Optionally, you can clear the selectedItems state after the order is placed
-  //     setSelectedItems([]);
-  //     setTotalPrice(0);
-  //   } catch (error) {
-  //     console.error('Error placing order:', error);
-  //     // Handle the error, e.g., display an error message to the user
-  //   }
-  // };
-
   // BELOW ARE THE FUNCTIONS THAT RENDER THE PAGE
   // These functions are used to render the page content
   // They are not event handlers or other logic
@@ -389,8 +358,6 @@ export default function Page() {
       </footer>
     );
   };
-
-
 
   return (
     <>
