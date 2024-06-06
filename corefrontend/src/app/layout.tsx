@@ -5,6 +5,8 @@ import {
 } from '@clerk/nextjs'
 
 import "./globals.css";
+import { CSPostHogProvider } from './providers'
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,9 +23,11 @@ export default function RootLayout({
   return (
   <ClerkProvider>
     <html lang='en'>
+    <CSPostHogProvider>
       <body>
         {children}
       </body>
+    </CSPostHogProvider>
     </html>
   </ClerkProvider>
 );
