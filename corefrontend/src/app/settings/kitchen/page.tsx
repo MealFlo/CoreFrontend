@@ -47,7 +47,7 @@ export default function KitchenSettings() {
         <div className="flex items-center justify-between">
           <Link
             className="flex items-center gap-2 px-3 py-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800 font-medium"
-            href="/kitchen"
+            href="/settings"
           >
             <IconArrowLeft className="w-5 h-5" />
             Back

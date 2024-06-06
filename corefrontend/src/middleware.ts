@@ -8,6 +8,7 @@ const isProtectedRoute = createRouteMatcher([
   '/kitchen(.*)',
   '/manage(.*)',
   '/onboarding(.*)',
+  '/settings(.*)',
 ]);
 
 export default clerkMiddleware((auth, req) => {

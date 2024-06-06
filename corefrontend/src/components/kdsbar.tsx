@@ -9,9 +9,10 @@ import {
   IconEye,
   IconFlame,
   IconListNumbers,
-  IconMessageCircle
+  IconMessageCircle,
 } from '@tabler/icons-react';
 import  {UserButton} from "@clerk/nextjs"
+import {AppSelectorDrop} from "@/components/app-selector";
 
 
 export function KDSBar() {
@@ -28,7 +29,7 @@ export function KDSBar() {
     
     // Convert hours from 24-hour to 12-hour format
     hours = hours % 12;
-    // The hour '0' should be '12'
+    // The hour '0' should be '12''
     hours = hours ? hours : 12;
     hours = String(hours).padStart(2, '0') as unknown as number;
     
@@ -84,6 +85,9 @@ export function KDSBar() {
           </Button>
         </div>
         <div className="flex items-center space-x-4">
+          <div className="ml-auto flex-1 sm:flex-initial">
+            <AppSelectorDrop/>
+          </div>
           <UserButton/>
         </div>
       </div>
