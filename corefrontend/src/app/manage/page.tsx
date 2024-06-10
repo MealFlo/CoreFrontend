@@ -1,22 +1,19 @@
 "use client"
 import Link from "next/link"
-import { CardTitle, CardHeader, CardContent, Card } from "@/components/ui/card"
 
 import  {UserButton, OrganizationSwitcher} from "@clerk/nextjs"
-import {
-  IconCalendar, IconChartBar,
-  IconChartLine, IconCurrencyDollar, IconMoodSmile,
-  IconPackage,
-  IconShoppingCart,
-  IconUsers,
-} from "@tabler/icons-react";
+import {IconHome, IconLayout, IconBook, IconPlus,} from "@tabler/icons-react";
 import MLoader from "@/components/ui/multisteploader"
 import { useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
 import {AppSelectorDrop} from "@/components/app-selector";
+import React, {useState} from "react";
+import {Dialog, DialogContent, DialogTrigger} from "@/components/ui/dialog";
+import FloorPlanCard from "@/components/manage/floor/floor-plan-card";
 
 
 export default function Dashboard() {
+  const [activeView, setActiveView] = useState('home');
   const { user } = useUser();
   const router = useRouter();
 
@@ -33,42 +30,38 @@ export default function Dashboard() {
   }
   return (
     <div className="grid min-h-screen w-full overflow-hidden lg:grid-cols-[280px_1fr]">
-      <div className="hidden border-r bg-gray-100/40 lg:block dark:bg-gray-800/40">
+      <div className="hidden border-r bg-gray-100/40 lg:block dark:bg-gray-800/40 p-6">
         <div className="flex flex-col gap-2">
-          <div className="flex h-[60px] items-center px-6">
+          <div className="flex h-[60px] items-center">
             <OrganizationSwitcher
               hidePersonal={true}
             />
           </div>
           <div className="flex-1">
-            <nav className="grid items-start px-4 text-sm font-medium">
+            <nav className="flex flex-col gap-2">
               <Link
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                href="#"
+                  className="flex items-center gap-2 px-3 py-2 rounded-md text-gray-700 dark:text-gray-300 bg-gray-200 dark:bg-gray-800 font-medium"
+                  href=""
+                  onClick={() => setActiveView('home')}
               >
-                <IconShoppingCart className="h-4 w-4" />
-                Orders
+                <IconHome className="w-5 h-5"/>
+                Home
               </Link>
               <Link
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                href="#"
+                  className="flex items-center gap-2 px-3 py-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800 font-medium"
+                  href=""
+                  onClick={() => setActiveView('menu')}
               >
-                <IconPackage className="h-4 w-4" />
-                Inventory
+                <IconBook className="w-5 h-5"/>
+                Menu
               </Link>
               <Link
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                href="#"
+                  className="flex items-center gap-2 px-3 py-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800 font-medium"
+                  href=""
+                  onClick={() => setActiveView('floor')}
               >
-                <IconUsers className="h-4 w-4" />
-                Customers
-              </Link>
-              <Link
-                className="flex items-center gap-3 rounded-lg px-3 py-2 text-gray-500 transition-all hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                href="#"
-              >
-                <IconChartLine className="h-4 w-4" />
-                Analytics
+                <IconLayout className="w-5 h-5"/>
+                Floor
               </Link>
             </nav>
           </div>
@@ -77,7 +70,15 @@ export default function Dashboard() {
       <div className="flex flex-col">
         <header className="flex h-14 lg:h-[60px] items-center gap-4 border-b bg-gray-100/40 px-6 dark:bg-gray-800/40">
           <div className="flex-1">
-            <h1 className="font-semibold text-lg">Restaurant Dashboard</h1>
+            {activeView === 'home' && (
+              <h1 className="font-semibold text-lg">Overview Dashboard</h1>
+            )}
+            {activeView === 'menu' && (
+              <h1 className="font-semibold text-lg">Menu Configuration</h1>
+            )}
+            {activeView === 'floor' && (
+              <h1 className="font-semibold text-lg">Floor Plan</h1>
+            )}
           </div>
           <div className="flex flex-1 items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
             <div className="ml-auto flex-1 sm:flex-initial">
@@ -87,68 +88,55 @@ export default function Dashboard() {
           </div>
         </header>
         <main className="flex flex-1 flex-col gap-4 p-4 md:gap-8 md:p-6">
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between pb-2">
-                <CardTitle className="text-sm font-medium">Total Revenue</CardTitle>
-                <IconCurrencyDollar className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">$245,231.89</div>
-                <p className="text-xs text-gray-500 dark:text-gray-400">+20.1% from last month</p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between pb-2">
-                <CardTitle className="text-sm font-medium">Total Orders</CardTitle>
-                <IconShoppingCart className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">+12,234</div>
-                <p className="text-xs text-gray-500 dark:text-gray-400">+19% from last month</p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between pb-2">
-                <CardTitle className="text-sm font-medium">Customer Satisfaction</CardTitle>
-                <IconMoodSmile className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">4.8/5</div>
-                <p className="text-xs text-gray-500 dark:text-gray-400">+0.2 from last month</p>
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between pb-2">
-                <CardTitle className="text-sm font-medium">New Customers</CardTitle>
-                <IconUsers className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">+573</div>
-                <p className="text-xs text-gray-500 dark:text-gray-400">+201 since last month</p>
-              </CardContent>
-            </Card>
-          </div>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-2">
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between pb-2">
-                <CardTitle className="text-sm font-medium">Revenue by Month</CardTitle>
-                <IconCalendar className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-              </CardHeader>
-              <CardContent>
-                <IconChartBar className="aspect-[9/4]" />
-              </CardContent>
-            </Card>
-            <Card>
-              <CardHeader className="flex flex-row items-center justify-between pb-2">
-                <CardTitle className="text-sm font-medium">Customer Satisfaction</CardTitle>
-                <IconMoodSmile className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-              </CardHeader>
-              <CardContent>
-                <IconChartLine className="aspect-[9/4]" />
-              </CardContent>
-            </Card>
-          </div>
+          {activeView === 'home' && (
+              <div>tell me</div>
+          )}
+          {activeView === 'menu' && (
+              <div>why</div>
+          )}
+          {activeView === 'floor' && (
+              <div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <div
+                          className="border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-lg p-6 flex flex-col items-center justify-center cursor-pointer">
+                        <IconPlus className="w-8 h-8 text-gray-500 dark:text-gray-400"/>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">Add a new floor</p>
+                      </div>
+                    </DialogTrigger>
+                    <DialogContent/>
+                  </Dialog>
+                  <FloorPlanCard
+                    title="Atrium"
+                    numGuests={120}
+                    numTables={25}
+                    accessibleSeating={12}
+                    outdoorSeating={24}
+                    privateDining={2}
+                    restrooms={2}
+                  />
+                  <FloorPlanCard
+                    title="Gallery"
+                    numGuests={80}
+                    numTables={15}
+                    accessibleSeating={8}
+                    outdoorSeating={16}
+                    privateDining={0}
+                    restrooms={1}
+                  />
+                  <FloorPlanCard
+                    title="Mezzanine"
+                    numGuests={50}
+                    numTables={10}
+                    accessibleSeating={5}
+                    outdoorSeating={10}
+                    privateDining={1}
+                    restrooms={1}
+                  />
+                </div>
+              </div>
+          )}
         </main>
       </div>
     </div>
