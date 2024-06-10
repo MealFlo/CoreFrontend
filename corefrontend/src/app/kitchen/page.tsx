@@ -1,5 +1,5 @@
 "use client"
-import { KDSBar } from "@/components/kdsbar"; 
+import { KDSBar } from "@/components/kitchen/kdsbar";
 import { DotBackground } from "@/components/dotbg";
 import MLoader from "@/components/ui/multisteploader";
 import OrderTicket from "@/components/kitchen/order-ticket"; // Ensure path is correct
